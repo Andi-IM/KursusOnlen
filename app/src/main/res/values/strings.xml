@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">KursusOnlen</string>
+    <string name="selamat_datang">Selamat Datang!</string>
+    <string name="terima_kasih_telah_mempercayakan_kursusonlen_sebagai_platform_belajar_digital_kesayangan_anda">Terima Kasih telah mempercayakan KursusOnlen sebagai platform belajar digital kesayangan Anda</string>
+    <string name="ilust_welcome">ilust_welcome</string>
+    <string name="sumber_voyapon_com">sumber: voyapon.com</string>
+    <string name="daftar">Daftar</string>
+    <string name="formulir_pendaftaran">Formulir Pendaftaran</string>
+    <string name="nama">Nama</string>
+    <string name="alamat">Alamat</string>
+    <string name="nomor_ponsel">Nomor Ponsel</string>
+    <string name="jenis_kelamin">Jenis Kelamin</string>
+    <string name="laki_laki">Laki-laki</string>
+    <string name="perempuan">Perempuan</string>
+    <string name="cek_lokasi">cek lokasi</string>
+    <string name="tambahkan_foto">tambahkan foto</string>
+    <string name="submit">Submit</string>
+    <string name="isi_foto">isi foto</string>
+    <string name="delete">Hapus</string>
+    <string name="lihat_peserta">Lihat Peserta</string>
+    <string name="latitute_longitude">Latitute, Longitude</string>
+</resources>

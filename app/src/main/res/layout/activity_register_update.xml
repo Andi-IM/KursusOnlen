@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingStart="8dp"
+    android:paddingEnd="8dp"
+    tools:context=".view.RegisterUpdateActivity">
+
+    <TextView
+        android:id="@+id/title_pendaftaran"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="@string/formulir_pendaftaran"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_nama"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title_pendaftaran"
+        android:layout_marginTop="10dp"
+        app:startIconDrawable="@drawable/ic_person">
+
+        <EditText
+            android:id="@+id/edit_nama"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="name"
+            android:hint="@string/nama"
+            android:inputType="textPersonName"
+            tools:ignore="SpeakableTextPresentCheck" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_alamat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/til_nama"
+        android:layout_marginTop="10dp"
+        app:startIconDrawable="@drawable/ic_pin_drop">
+
+        <EditText
+            android:id="@+id/edit_alamat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="postalAddress"
+            android:hint="@string/alamat"
+            android:inputType="textMultiLine"
+            android:maxLines="5"
+            tools:ignore="SpeakableTextPresentCheck" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_no_ponsel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/til_alamat"
+        android:layout_marginTop="10dp"
+        app:startIconDrawable="@drawable/ic_local_phone">
+
+        <EditText
+            android:id="@+id/edit_nomor_ponsel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="phone"
+            android:hint="@string/nomor_ponsel"
+            android:inputType="phone"
+            android:maxLines="5"
+            tools:ignore="SpeakableTextPresentCheck" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/text_jenis_kelamin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/til_no_ponsel"
+        android:layout_marginTop="10dp"
+        android:text="@string/jenis_kelamin" />
+
+    <RadioGroup
+        android:id="@+id/rg_jenis_kelamin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/til_no_ponsel"
+        android:layout_marginStart="10dp"
+        android:layout_toEndOf="@id/text_jenis_kelamin"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/laki_laki"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/laki_laki" />
+
+        <RadioButton
+            android:id="@+id/perempuan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/perempuan" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btn_cek_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rg_jenis_kelamin"
+        android:text="@string/cek_lokasi" />
+
+    <TextView
+        android:id="@+id/txt_lokasi_perkiraan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rg_jenis_kelamin"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="12dp"
+        android:layout_toEndOf="@id/btn_cek_location"
+        tools:text="Cek lokasi" />
+
+    <Button
+        android:id="@+id/btn_add_photo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_cek_location"
+        android:text="@string/tambahkan_foto" />
+
+    <TextView
+        android:id="@+id/txt_nama_foto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_cek_location"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="10dp"
+        android:layout_toEndOf="@id/btn_add_photo"
+        tools:text="@string/isi_foto" />
+
+    <Button
+        android:id="@+id/submit_form"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="30dp"
+        android:text="@string/submit" />
+</RelativeLayout>

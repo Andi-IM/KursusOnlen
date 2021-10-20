@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp"
+    tools:context=".view.MainActivity">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/selamat_datang"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/subtitle"
+        style="@android:style/TextAppearance.Material.Subhead"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title"
+        android:layout_marginTop="10dp"
+        android:text="@string/terima_kasih_telah_mempercayakan_kursusonlen_sebagai_platform_belajar_digital_kesayangan_anda"
+        android:textAlignment="center" />
+
+    <ImageView
+        android:id="@+id/illustration_title"
+        android:layout_width="wrap_content"
+        android:layout_height="350dp"
+        android:layout_below="@id/subtitle"
+        android:contentDescription="@string/ilust_welcome"
+        android:src="@drawable/thanks" />
+
+    <TextView
+        android:id="@+id/img_source"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/illustration_title"
+        android:layout_alignParentEnd="true"
+        android:text="@string/sumber_voyapon_com" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true">
+
+        <Button
+            android:id="@+id/to_register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginEnd="10dp"
+            android:text="@string/daftar" />
+
+        <Button
+            android:id="@+id/to_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:text="@string/lihat_peserta"
+            style="?android:attr/buttonBarButtonStyle" />
+    </LinearLayout>
+
+
+</RelativeLayout>
