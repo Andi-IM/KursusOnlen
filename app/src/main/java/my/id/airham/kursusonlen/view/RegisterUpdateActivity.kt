@@ -24,10 +24,10 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.FileProvider
 import my.id.airham.kursusonlen.BuildConfig
 import my.id.airham.kursusonlen.R
-import my.id.airham.kursusonlen.data.Participant
-import my.id.airham.kursusonlen.data.UserLocation
 import my.id.airham.kursusonlen.db.DatabaseContract
 import my.id.airham.kursusonlen.db.ParticipantHelper
+import my.id.airham.kursusonlen.entity.Participant
+import my.id.airham.kursusonlen.entity.UserLocation
 import java.io.File
 import java.util.*
 
@@ -113,7 +113,8 @@ class RegisterUpdateActivity : AppCompatActivity(), View.OnClickListener, Locati
                 editNomorPonsel.setText(it.phoneNumber)
                 groupJenisKelamin.check(
                     if (it.gender?.lowercase(Locale.getDefault())?.trim() == "perempuan")
-                        R.id.perempuan else R.id.laki_laki)
+                        R.id.perempuan else R.id.laki_laki
+                )
                 lbLokasi.text = "${it.latitude}, ${it.longitude}"
                 val fileName = it.photoUri?.trim()?.split("/")?.last()
                 lbPhoto.text = fileName
@@ -142,7 +143,9 @@ class RegisterUpdateActivity : AppCompatActivity(), View.OnClickListener, Locati
 
     // menjalankan kamera
     private fun onLaunchCamera() {
-        val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+        val intent = Intent()
+        intent.action = MediaStore.ACTION_IMAGE_CAPTURE
+
         photoFile = getPhotoFileUri(photoFileName)
 
         // file foto ada?
@@ -164,7 +167,7 @@ class RegisterUpdateActivity : AppCompatActivity(), View.OnClickListener, Locati
     }
 
     // mendapatkan foto dari uri (uri adalah link / lokasi tempat dimana foto berada)
-    fun getPhotoFileUri(fileName: String): File {
+    private fun getPhotoFileUri(fileName: String): File {
         val mediaStorageDir = File(getExternalFilesDir(Environment.DIRECTORY_PICTURES), APP_TAG)
 
         if (!mediaStorageDir.exists() && !mediaStorageDir.mkdirs()) {
@@ -206,7 +209,7 @@ class RegisterUpdateActivity : AppCompatActivity(), View.OnClickListener, Locati
 
                 val photoUri = photoFile?.absolutePath
 
-                if (nama.isEmpty()){
+                if (nama.isEmpty()) {
                     editNama.error = "Tidak boleh kosong!"
                     return
                 }
@@ -220,7 +223,8 @@ class RegisterUpdateActivity : AppCompatActivity(), View.OnClickListener, Locati
                 participant?.longitude = location?.longitude!!
                 participant?.photoUri = photoUri
 
-                val intent = Intent(this@RegisterUpdateActivity, ListParticipantActivity::class.java)
+                val intent =
+                    Intent(this@RegisterUpdateActivity, ListParticipantActivity::class.java)
                 intent.putExtra(EXTRA_PARTICIPANT, participant)
                 intent.putExtra(EXTRA_POSITION, position)
 
@@ -266,8 +270,10 @@ class RegisterUpdateActivity : AppCompatActivity(), View.OnClickListener, Locati
         }
     }
 
+    // mengurus lokasi
     private fun onGetLocation() {
-        locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager // mendapatkan service untuk lokasi
+        locationManager =
+            getSystemService(Context.LOCATION_SERVICE) as LocationManager // mendapatkan service untuk lokasi
 
         // meminta izin privasi kepada user untuk mengakses kamera
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
@@ -373,6 +379,6 @@ class RegisterUpdateActivity : AppCompatActivity(), View.OnClickListener, Locati
     @SuppressLint("SetTextI18n")
     override fun onLocationChanged(locationData: Location) {
         location = UserLocation(locationData.latitude, locationData.longitude)
-        lbLokasi.text =  "${location?.latitude}, ${location?.longitude}"
+        lbLokasi.text = "${location?.latitude}, ${location?.longitude}"
     }
 }

@@ -15,9 +15,9 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import my.id.airham.kursusonlen.R
-import my.id.airham.kursusonlen.data.Participant
+import my.id.airham.kursusonlen.adapter.ParticipantAdapter
 import my.id.airham.kursusonlen.db.ParticipantHelper
-import my.id.airham.kursusonlen.presenter.ParticipantAdapter
+import my.id.airham.kursusonlen.entity.Participant
 import my.id.airham.kursusonlen.util.MappingHelper
 
 class ListParticipantActivity : AppCompatActivity() {
